@@ -15,8 +15,23 @@ datasource db {
 }
 
 model User {
-  id    Int    @id @default(autoincrement())
-  email String @unique
-  name  String?
-  password String 
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  name     String?
+  password String
+}
+
+model Requerimento {
+  id         String   @id @default(cuid())
+  nome       String
+  nomeSocial String?
+  matricula  String
+  telefone   String
+  email      String
+  cursoTurma String
+  cpf        String
+  objetos    String[] // Armazena os objetos selecionados como array de strings
+  outros     String?
+  motivo     String
+  createdAt  DateTime @default(now())
 }
